@@ -1,0 +1,28 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header,
+footer {
+  width: 100%;
+  background-color: purple;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: white;
+}
+
+main {
+  flex: 8;
+  padding: 3rem;
+}
+
+.fields {
+  display: flex;
+}

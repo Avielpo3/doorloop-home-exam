@@ -1,0 +1,18 @@
+.statistics {
+  display: flex;
+  border-bottom: 1px solid #e8e8e8;
+  height: 5rem;
+}
+
+.statistics .box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  border-right: 1px solid #e8e8e8;
+}
+
+.statistics .box * {
+  margin: 0;
+}
