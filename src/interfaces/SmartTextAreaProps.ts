@@ -1,12 +1,9 @@
 import { GameStatus } from "./GameStatus";
 
 export interface SmartTextAreaProps {
+  wordsHistory: string[];
   words: string[];
-  getCharClassname: (
-    wordIndex: number,
-    charIndex: number,
-    char: string
-  ) => string;
+  currentInput?: string;
   currentWordIndex: number;
   gamesStatus: GameStatus;
 }

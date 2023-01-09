@@ -24,20 +24,33 @@ const useStyles = makeStyles({
     letterSpacing: "0.05rem",
   },
   correct: {
-    color: "green",
+    color: "darkgreen",
   },
   mistake: {
     color: "red",
   },
+  normal: {
+    color: "#444",
+  },
   currentWord: {
-    backgroundColor: "#b8e069",
+    backgroundColor: "khaki",
     borderRadius: "5px",
-    marginRight: "0.2rem",
-    padding: "0.3rem",
     display: "inline-block",
   },
   word: {
-    marginRight: "0.2rem",
+    padding: "0.3rem",
+    display: "inline-block",
+    borderRadius: "5px",
+  },
+  wordMatched: {
+    backgroundColor: "lightgreen",
+    borderRadius: "5px",
+    padding: "0.3rem",
+    display: "inline-block",
+  },
+  wordMistaken: {
+    backgroundColor: "tomato",
+    borderRadius: "5px",
     padding: "0.3rem",
     display: "inline-block",
   },

@@ -12,12 +12,14 @@ export const WordStatistics = ({
   const [intervalSeconds, setIntervalSeconds] = useState(0);
 
   useEffect(() => {
-    if (countdown && 60 - countdown !== 0) {
+    if (countdown && TEST_TIME_IN_SECONDS - countdown !== 0) {
       const totalWordsCount = correct + mistakes;
       const totalTimePlaying = TEST_TIME_IN_SECONDS - countdown;
       const wpm = (totalWordsCount / totalTimePlaying) * 60;
 
       setIntervalSeconds(Math.round(wpm));
+    } else if (countdown === TEST_TIME_IN_SECONDS) {
+      setIntervalSeconds(0);
     }
   }, [countdown, mistakes, correct]);
 

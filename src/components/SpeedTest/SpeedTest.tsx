@@ -19,6 +19,7 @@ export const SpeedTest = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
   const [currentCharIndex, setCurrentCharIndex] = useState<number>(-1);
   const [currentCharValue, setCurrentCharValue] = useState<string>("");
+  const [wordsHistory, setWordsHistory] = useState<string[]>([]);
 
   const [correct, setCorrect] = useState<number>(0);
   const [mistakes, setMistakes] = useState<number>(0);
@@ -74,6 +75,7 @@ export const SpeedTest = () => {
     setCountdown(TEST_TIME_IN_SECONDS);
     setCurrentCharIndex(-1);
     setCurrentCharValue("");
+    setWordsHistory([]);
   };
 
   const handleKeyDown = (event: any) => {
@@ -86,11 +88,12 @@ export const SpeedTest = () => {
 
     if (keyCode === KeyCode.KEY_SPACE) {
       checkWordMatches();
+      setWordsHistory([...wordsHistory, currentInput.trim()]);
       setCurrentInput("");
       setCurrentWordIndex(currentWordIndex + 1);
       setCurrentCharIndex(-1);
       setCurrentCharValue("");
-
+      console.log(wordsHistory);
       // End game for the last word.
       if (words.length - 1 === currentWordIndex) {
         clearInterval(intervalRef);
@@ -103,6 +106,8 @@ export const SpeedTest = () => {
       }
       setCurrentCharIndex(-1);
       setCurrentCharValue("");
+      setWordsHistory(wordsHistory.slice(0, -1));
+      console.log(wordsHistory);
     } else if (
       currentInput !== "" &&
       keyCode === KeyCode.KEY_BACK_SPACE &&
@@ -134,9 +139,10 @@ export const SpeedTest = () => {
 
       <SmartTextArea
         words={words}
-        getCharClassname={getCharClassname}
         currentWordIndex={currentWordIndex}
         gamesStatus={gameStatus}
+        wordsHistory={wordsHistory}
+        currentInput={currentInput}
       />
 
       <SpeedTestFields
